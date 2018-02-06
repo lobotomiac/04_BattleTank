@@ -1,0 +1,617 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"taskName": "BattleTank Win32 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Shipping",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Shipping",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Test",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win32 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win32",
+				"Test",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Shipping",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Shipping",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Test",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank Win64 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"Win64",
+				"Test",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Shipping Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Shipping",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Shipping Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Shipping",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Test Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Test",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTank HTML5 Test Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTank",
+				"HTML5",
+				"Test",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTankEditor Win64 Debug Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTankEditor",
+				"Win64",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTankEditor Win64 Debug Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTankEditor",
+				"Win64",
+				"Debug",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTankEditor Win64 DebugGame Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTankEditor",
+				"Win64",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTankEditor Win64 DebugGame Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTankEditor",
+				"Win64",
+				"DebugGame",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTankEditor Win64 Development Build",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Build.bat",
+			"args": [
+				"BattleTankEditor",
+				"Win64",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		},
+		{
+			"taskName": "BattleTankEditor Win64 Development Clean",
+			"group": "build",
+			"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+			"args": [
+				"BattleTankEditor",
+				"Win64",
+				"Development",
+				"\"D:\\Users\\Marko\\Documents\\Unreal Projects\\BattleTank\\BattleTank\\BattleTank.uproject\"",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "D:\\Program Files\\Epic Games\\UE_4.18"
+			}
+		}
+	]
+}
