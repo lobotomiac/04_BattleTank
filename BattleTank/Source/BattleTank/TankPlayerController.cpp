@@ -8,8 +8,6 @@
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Warning, TEXT("TankPlayerController BeginPlay Log"))
-
 	auto ControlledTank = GetControlledTank();
 	if (!ControlledTank)
 	{
