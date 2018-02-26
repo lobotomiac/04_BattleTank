@@ -20,6 +20,9 @@ public:
 
 	ATank * GetControlledTank() const;
 	
-	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	void AimTowardsCrosshair();
 	
 };
