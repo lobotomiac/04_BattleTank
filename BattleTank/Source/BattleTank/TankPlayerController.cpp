@@ -20,6 +20,10 @@
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s possesses a tank"),*GetName())
 	}
+
+	ViewportSizeXLocation = 0.5;
+	ViewportSizeYLocation = 0.33333;
+
 }
 
  void ATankPlayerController::Tick(float DeltaTime)
@@ -37,19 +41,24 @@
 
 	 if (GetSightRayHitLocation(OutHitLocation))
 	 {
-		 UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *OutHitLocation.ToString())
+		// UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *OutHitLocation.ToString())
 			 // If it hits the landscape
 			 // Tell controlled tank to aim at this point
 	 } 
  }
 
  /// Getting location of crosshair in world (location of where its pointing) and returning true if hitting terrain, objects || false for aiming at sky
- bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) const
+ bool ATankPlayerController::GetSightRayHitLocation(FVector &OutHitLocation) const
  {
-	 OutHitLocation = FVector(12.0);
-	 // ray cast from turret to crosshair
-		// check hit
-		// update HitLocation
+	 // Find the crosshair position
+	 int32 ViewportSizeX, ViewportSizeY;
+	 GetViewportSize(ViewportSizeX, ViewportSizeY);
+	 auto ScreenLocation = FVector2D(ViewportSizeX * ViewportSizeXLocation, ViewportSizeY * ViewportSizeYLocation);
+
+	 UE_LOG(LogTemp, Warning, TEXT("Crosshair location: %s"), *ScreenLocation.ToString())
+		// "De-project" the screen position of the crosshair to a world direction
+	
+		// Line-Trace along that look direction, and see what we hit(up to max range)
 	 return true;
  }
 
