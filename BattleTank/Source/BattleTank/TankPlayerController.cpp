@@ -50,16 +50,30 @@
  /// Getting location of crosshair in world (location of where its pointing) and returning true if hitting terrain, objects || false for aiming at sky
  bool ATankPlayerController::GetSightRayHitLocation(FVector &OutHitLocation) const
  {
-	 // Find the crosshair position
-	 int32 ViewportSizeX, ViewportSizeY;
-	 GetViewportSize(ViewportSizeX, ViewportSizeY);
-	 auto ScreenLocation = FVector2D(ViewportSizeX * ViewportSizeXLocation, ViewportSizeY * ViewportSizeYLocation);
+	// Find the crosshair position
+	int32 ViewportSizeX, ViewportSizeY;
+	GetViewportSize(ViewportSizeX, ViewportSizeY);
+	auto ScreenLocation = FVector2D(ViewportSizeX * ViewportSizeXLocation, ViewportSizeY * ViewportSizeYLocation);
 
-	 UE_LOG(LogTemp, Warning, TEXT("Crosshair location: %s"), *ScreenLocation.ToString())
-		// "De-project" the screen position of the crosshair to a world direction
-	
-		// Line-Trace along that look direction, and see what we hit(up to max range)
-	 return true;
+	// "De-project" the screen position of the crosshair to a world direction
+	FVector AimDirection;
+	if (CrosshairAimDirection(ScreenLocation, AimDirection))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Crosshair aimed at: %s"), *AimDirection.ToString())
+	}
+		
+		// TODO Line-Trace along that look direction, and see what we hit(up to max range)
+	return true;
+ }
+
+ bool ATankPlayerController::CrosshairAimDirection(FVector2D ScreenLocation, FVector &AimDirection) const
+ {
+	FVector CameraWorldDirection; // To be discarded
+	if (DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, CameraWorldDirection, AimDirection))
+	{
+		return true;
+	}
+	else { return false; }
  }
 
 ATank* ATankPlayerController::GetControlledTank() const

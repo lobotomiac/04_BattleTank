@@ -34,4 +34,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	float ViewportSizeYLocation;
 	
+	// Find aiming coordinates in 3D space
+	bool CrosshairAimDirection(FVector2D ScreenLocation, FVector &AimDirection) const;
+
 };
