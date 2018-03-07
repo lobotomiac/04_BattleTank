@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Tank.h"
+#include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
@@ -24,9 +25,12 @@ public:
 private:
 	ATank * GetControlledTank() const;
 	
+	FVector OutHitLocation;	// Out Parameter
+
 	void AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
+
 
 	UPROPERTY(EditAnywhere)
 	float ViewportSizeXLocation;
@@ -37,4 +41,9 @@ private:
 	// Find aiming coordinates in 3D space
 	bool CrosshairAimDirection(FVector2D ScreenLocation, FVector &AimDirection) const;
 
+	// Line tracing to where the aim is, false if hitting sky, else true &  coordinates of hit collision with object
+	bool GetLookVectorHitLocation(FVector AimDirectionn, FVector &OutHitLocation) const;
+
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000;
 };
