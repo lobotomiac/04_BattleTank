@@ -39,9 +39,7 @@
 
 	 if (GetSightRayHitLocation(OutHitLocation))
 	 {
-		// UE_LOG(LogTemp, Warning, TEXT("HitLocation: %s"), *OutHitLocation.ToString())
-			 // If it hits the landscape
-			 // Tell controlled tank to aim at this point
+		 GetControlledTank()->AimAt(OutHitLocation);
 	 } 
  }
 
@@ -59,7 +57,6 @@
 	{
 		// Line-Trace along that look direction, and see what we hit(up to max range)
 		GetLookVectorHitLocation(AimDirection, OutHitLocation);
-		UE_LOG(LogTemp, Warning, TEXT("Crosshair aimed at: %s"), *OutHitLocation.ToString())
 	}
 		
 	return true;

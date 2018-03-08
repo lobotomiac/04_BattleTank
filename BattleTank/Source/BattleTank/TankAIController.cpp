@@ -6,7 +6,7 @@ void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	PlayerControlledTank();
+	AIControlledTank();
 
 	auto PlayerTank = GetPlayerTank();
 	if (!PlayerTank)
@@ -21,7 +21,13 @@ void ATankAIController::BeginPlay()
 
 }
 
-ATank * ATankAIController::GetPlayerControlledTank() const
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	AimTowardsPlayer();
+}
+
+ATank * ATankAIController::GetAIControlledTank() const
 {
 	return Cast<ATank>(GetPawn());
 }
@@ -29,7 +35,7 @@ ATank * ATankAIController::GetPlayerControlledTank() const
 ATank * ATankAIController::GetPlayerTank() const
 {
 	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	return Cast<ATank>(PlayerPawn);
+	// return Cast<ATank>(PlayerPawn);
 	if (!PlayerPawn)
 	{
 		return nullptr;
@@ -40,18 +46,26 @@ ATank * ATankAIController::GetPlayerTank() const
 	}
 }
 
-void ATankAIController::PlayerControlledTank()
+void ATankAIController::AIControlledTank()
 {
-	auto PlayerControlledTank = GetPlayerControlledTank();
+	auto AIControlledTank = GetAIControlledTank();
 
-	if (!PlayerControlledTank)
+	if (!AIControlledTank)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%s is not possesed by AI!"), *(PlayerControlledTank->GetName()))
+		UE_LOG(LogTemp, Warning, TEXT("%s is not possesed by AI!"), *(AIControlledTank->GetName()))
 		return;
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AIController posseses %s."), *(PlayerControlledTank->GetName()))
+		UE_LOG(LogTemp, Warning, TEXT("AIController posseses %s."), *(AIControlledTank->GetName()))
+	}
+}
+
+void ATankAIController::AimTowardsPlayer()
+{
+	if (GetPlayerTank())
+	{
+		GetAIControlledTank()->AimAt(GetPlayerTank()->GetActorLocation());
 	}
 }
 

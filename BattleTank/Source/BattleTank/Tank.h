@@ -26,6 +26,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
+	//	Called to aim at either crosshair(player) or player(AI)
+	virtual void AimAt(FVector OutHitLocation) const;
 	
 };
