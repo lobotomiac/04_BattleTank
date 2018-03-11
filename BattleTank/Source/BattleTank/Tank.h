@@ -32,4 +32,8 @@ public:
 	//	Called to aim at either crosshair(player) or player(AI)
 	virtual void AimAt(FVector OutHitLocation) const;
 	
+	// Delegating SetbarrelReference to the aiming component
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+
 };
