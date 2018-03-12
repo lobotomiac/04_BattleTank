@@ -44,7 +44,7 @@ void ATank::AimAt(FVector OutHitLocation) const
 	{
 		return;
 	}
-	TankAimingComponent->AimAt(OutHitLocation);
+	TankAimingComponent->AimAt(OutHitLocation, LaunchSpeed);
 	
 }
 
