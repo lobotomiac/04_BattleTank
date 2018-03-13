@@ -19,24 +19,6 @@ void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
 }
 
 
-// Called when the game starts
-void UTankAimingComponent::BeginPlay()
-{
-	Super::BeginPlay();
-	// ...
-	
-}
-
-
-// Called every frame
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-
-	
-}
-
 void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) const
 {
 	if (!Barrel) { return; }
@@ -44,8 +26,8 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) cons
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("LaunchPoint"));
 
-	if (UGameplayStatics::SuggestProjectileVelocity // TODO test DrawDebugLine
-		(
+	bool ProjectileAimSolution = UGameplayStatics::SuggestProjectileVelocity
+	(
 		this,
 		OutLaunchVelocity,
 		StartLocation,
@@ -55,17 +37,34 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) cons
 		0,
 		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
-		)
-	)
+		//FCollisionResponseParams::DefaultResponseParam,
+		//TArray<AActor*>(),
+		//true			`										enable to trace path
+	);
+	if (ProjectileAimSolution)
 	{
-		auto TankName = GetOwner()->GetName();
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
-		UE_LOG(LogTemp, Warning, TEXT("%s Firing at %s"), *TankName, *AimDirection.ToString())
+		MoveBarrel(AimDirection);
 	}
 	else 
 	{
 		return;
 	}
-	
-	
 }
+
+void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
+{
+	auto BarrelRotation = Barrel->GetComponentRotation();
+	auto AimRotation = AimDirection.Rotation();
+	auto DeltaRotation = AimDirection - BarrelRotation;
+	UE_LOG(LogTemp, Warning, TEXT("BarrelRotatino: %s  AimRotation : %s"), *BarrelRotation.ToString(), *AimRotation.ToString())
+	//	setTurretRotationSpeed
+	//	SetTurretElevationSpeed
+	//	Take mouse input from user 
+	//	Change rotation towards to where user points mouse at previously set speed
+
+}
+
+
+
+
