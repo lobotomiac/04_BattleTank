@@ -7,6 +7,9 @@
 #include "TankAimingComponent.h"
 #include "Tank.generated.h"
 
+class UTankBarrel; // forward declaration
+
+
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
@@ -34,7 +37,7 @@ public:
 	
 	// Delegating SetbarrelReference to the aiming component
 	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
+	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 100000;	// starting value, overridable in blueprint / find reasonable value

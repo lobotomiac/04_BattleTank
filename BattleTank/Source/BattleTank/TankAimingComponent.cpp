@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankAimingComponent.h"
-
+#include "TankBarrel.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -13,7 +13,7 @@ UTankAimingComponent::UTankAimingComponent()
 	// ...
 }
 
-void UTankAimingComponent::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
@@ -56,14 +56,14 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
 {
 	auto BarrelRotation = Barrel->GetComponentRotation();
 	auto AimRotation = AimDirection.Rotation();
-	auto DeltaRotation = AimDirection - BarrelRotation;
-	UE_LOG(LogTemp, Warning, TEXT("BarrelRotatino: %s  AimRotation : %s"), *BarrelRotation.ToString(), *AimRotation.ToString())
-	//	setTurretRotationSpeed
-	//	SetTurretElevationSpeed
-	//	Take mouse input from user 
-	//	Change rotation towards to where user points mouse at previously set speed
-
-}
+	auto DeltaRotation = AimRotation - BarrelRotation;
+	// UE_LOG(LogTemp, Warning, TEXT("BarrelRotatino: %s  AimRotation : %s"), *BarrelRotation.ToString(), *AimRotation.ToString())
+		//	setTurretRotationSpeed
+		//	SetTurretElevationSpeed
+		//	Take mouse input from user 
+		//	Change rotation towards to where user points mouse at previously set speed
+		Barrel->ElevateBarrel(5.0); //TODO remove magic number
+}	
 
 
 
