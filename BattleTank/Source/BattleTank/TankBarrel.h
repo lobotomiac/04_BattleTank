@@ -9,13 +9,14 @@
 /**
  * 
  */
-UCLASS(meta = (BlueprintSpawnableComponent))
+UCLASS(meta = (BlueprintSpawnableComponent), hidecategories = (Collision, Cooking, ComponentReplication, Lighting, Rendering, Physics, HLOD, Mobile))
 class BATTLETANK_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 	
 public:
-	void ElevateBarrel(float DegreesPerSecond);
+	// elevates the barrel by % of MaxDegreesPerSecond 
+	void ElevateBarrel(float RelativeSpeed);
 
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)

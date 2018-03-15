@@ -67,12 +67,14 @@
 	 FHitResult HitResult;
 	 FVector Start = PlayerCameraManager->GetCameraLocation();
 	 FVector End = Start + (AimDirection * LineTraceRange);
-
+	 FCollisionQueryParams Params;
+	 Params.AddIgnoredActor(GetPawn());
 	 if (GetWorld()->LineTraceSingleByChannel(
 		 HitResult,
 		 Start,
 		 End,
-		 ECC_Visibility)
+		 ECC_Visibility,
+		 Params)
 		 )
 	 {
 	 OutHitLocation = HitResult.Location;
