@@ -3,9 +3,13 @@
 #include "TankBarrel.h"
 
 
-
+/// change barrel elevation per frame up to max elevation speed and the frame time 
 void UTankBarrel::ElevateBarrel(float RelativeSpeed)
 {
-	// change barrel elevation per frame up to max elevation speed and the frame time (deltatime?)
-	
+	//  elevatino speed change
+	auto ElevationChange = FMath::Clamp<float>(RelativeSpeed, -1.0, 1.0) * MaxDegreesPerSecond * GetWorld()->DeltaTimeSeconds;
+
+	auto NewElevation = RelativeRotation.Pitch + ElevationChange;
+
+	SetRelativeRotation(FRotator(FMath::Clamp(NewElevation, MinElevation, MaxElevation), 0.0, 0.0));
 }

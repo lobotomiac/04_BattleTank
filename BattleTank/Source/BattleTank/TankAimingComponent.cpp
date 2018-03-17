@@ -37,9 +37,9 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) cons
 		0,
 		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
-		//FCollisionResponseParams::DefaultResponseParam,
-		//TArray<AActor*>(),
-		//true			`										enable to trace path
+		//FCollisionObjectQueryParams::DefaultObjectQueryParam,	//enable to trace path
+		//TArray<AActor*>(),										//enable to trace path
+		//true													//enable to trace path
 	);
 	if (ProjectileAimSolution)
 	{
@@ -66,7 +66,7 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
 		//	SetTurretElevationSpeed
 		//	Take mouse input from user 
 		//	Change rotation towards to where user points mouse at previously set speed
-		Barrel->ElevateBarrel(5.0); //TODO remove magic number
+		Barrel->ElevateBarrel(DeltaRotation.Pitch); //TODO remove magic number
 }	
 
 
