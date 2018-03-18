@@ -6,8 +6,9 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
-class UTankBarrel; // forward declaration
-class UTankAimingComponent;	// forward declaration
+class UTankBarrel; 
+class UTankTurret; 
+class UTankAimingComponent;	
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -35,7 +36,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
+	// Delegating SetTurretReference to the aiming component
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetTurretReference(UTankTurret* TurretToSet);
+
+	// starting value, overridable in blueprint / find reasonable value
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 100000;	// starting value, overridable in blueprint / find reasonable value
+	float LaunchSpeed = 100000;	
 
 };

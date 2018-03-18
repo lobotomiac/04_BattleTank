@@ -2,6 +2,7 @@
 
 #include "TankAimingComponent.h"
 #include "TankBarrel.h"
+#include "TankTurret.h"
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
@@ -19,12 +20,19 @@ void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 }
 
 
+void UTankAimingComponent::SetTurretReference(UTankTurret * TurretToSet)
+{
+	Turret = TurretToSet;
+}
+
 void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) const
 {
 	if (!Barrel) { return; }
 
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("LaunchPoint"));
+
+
 
 	bool ProjectileAimSolution = UGameplayStatics::SuggestProjectileVelocity
 	(
@@ -45,13 +53,9 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) cons
 	{
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrel(AimDirection);
-		auto RunningTime = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f : Aim \"Solve\" whatever that is found"), RunningTime)
 	}
 	else 
 	{
-		auto RunningTime = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f : Aim \"Solve\" whatever that is, not found"), RunningTime)
 		return;
 	}
 }
@@ -61,13 +65,11 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
 	auto BarrelRotation = Barrel->GetComponentRotation();
 	auto AimRotation = AimDirection.Rotation();
 	auto DeltaRotation = AimRotation - BarrelRotation;
-	// UE_LOG(LogTemp, Warning, TEXT("BarrelRotatino: %s  AimRotation : %s"), *BarrelRotation.ToString(), *AimRotation.ToString())
-		//	setTurretRotationSpeed
-		//	SetTurretElevationSpeed
-		//	Take mouse input from user 
-		//	Change rotation towards to where user points mouse at previously set speed
-		Barrel->ElevateBarrel(DeltaRotation.Pitch); //TODO remove magic number
-}	
+		
+	/// rotate barrel and turret towards crosshair
+	Barrel->ElevateBarrel(DeltaRotation.Pitch);
+	Turret->RotateTurret(DeltaRotation.Yaw);
+}
 
 
 

@@ -4,12 +4,12 @@
 
 
 /// change barrel elevation per frame up to max elevation speed and the frame time 
-void UTankBarrel::ElevateBarrel(float RelativeSpeed)
+void UTankBarrel::ElevateBarrel(float RelativeChangeSpeed)
 {
-	//  elevatino speed change
-	auto ElevationChange = FMath::Clamp<float>(RelativeSpeed, -1.0, 1.0) * MaxDegreesPerSecond * GetWorld()->DeltaTimeSeconds;
+	//  elevation speed change
+	auto PitchChange = FMath::Clamp<float>(RelativeChangeSpeed, -1.0, 1.0) * MaxBarrelElevationChangeSpeed * GetWorld()->DeltaTimeSeconds;
 
-	auto NewElevation = RelativeRotation.Pitch + ElevationChange;
+	auto NewElevation = RelativeRotation.Pitch + PitchChange;
 
 	SetRelativeRotation(FRotator(FMath::Clamp(NewElevation, MinElevation, MaxElevation), 0.0, 0.0));
 }
