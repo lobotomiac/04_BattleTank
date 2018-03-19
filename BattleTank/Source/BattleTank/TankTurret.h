@@ -17,11 +17,11 @@ class BATTLETANK_API UTankTurret : public UStaticMeshComponent
 
 public: 
 	// turret rotation function
-	void RotateTurret(/*FRotator TurretYawRotation,*/ float AimDirection);
+	void RotateTurret(float AimDirection);
 
 private:
 	//  Max speed of turret rotation duh? :P
 	UPROPERTY(EditAnywhere, Category = Setup)
-	float MaxTurretYawRotationSpeed = 25.0;
+	float MaxTurretRotation = 25.0;
 	
 };

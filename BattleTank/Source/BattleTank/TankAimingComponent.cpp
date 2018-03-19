@@ -9,7 +9,7 @@ UTankAimingComponent::UTankAimingComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;		// should it tick? 
+	PrimaryComponentTick.bCanEverTick = false;		// should it tick? 
 	
 	// ...
 }
@@ -68,7 +68,8 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
 		
 	/// rotate barrel and turret towards crosshair
 	Barrel->ElevateBarrel(DeltaRotation.Pitch);
-	Turret->RotateTurret(DeltaRotation.Yaw);
+	//  Makes sure the turret rotation takes the shortest route to turn
+	Turret->RotateTurret(DeltaRotation.GetNormalized().Yaw);
 }
 
 
