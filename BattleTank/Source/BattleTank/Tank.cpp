@@ -37,6 +37,12 @@ void ATank::SetTurretReference(UTankTurret * TurretToSet)
 	TankAimingComponent->SetTurretReference(TurretToSet);
 }
 
+void ATank::Fire() const
+{
+	UE_LOG(LogTemp, Warning, TEXT("Projectile Fired"))
+	return;
+}
+
 void ATank::AimAt(FVector OutHitLocation) const
 {
 	if (!TankAimingComponent)
