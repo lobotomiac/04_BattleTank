@@ -32,12 +32,9 @@ private:
 	void AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
-
-
-	UPROPERTY(EditAnywhere)
+	
 	float ViewportSizeXLocation;
 
-	UPROPERTY(EditAnywhere)
 	float ViewportSizeYLocation;
 	
 	// Find aiming coordinates in 3D space
@@ -46,6 +43,6 @@ private:
 	// Line tracing to where the aim is, false if hitting sky, else true &  coordinates of hit collision with object
 	bool GetLookVectorHitLocation(FVector AimDirectionn, FVector &OutHitLocation) const;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000;
 };

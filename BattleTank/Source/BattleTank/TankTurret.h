@@ -21,7 +21,7 @@ public:
 
 private:
 	//  Max speed of turret rotation duh? :P
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	float MaxTurretRotation = 25.0;
 	
 };
