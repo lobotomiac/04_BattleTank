@@ -6,6 +6,9 @@
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
 
+
+// TODO fix scaling properly
+
 // Sets default values
 ATank::ATank()
 {
