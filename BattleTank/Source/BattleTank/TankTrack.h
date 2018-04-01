@@ -19,5 +19,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Input)
 	void SetThrottle(float Throttle);
 	
-	
+	// Max driving force in Newtons
+	UPROPERTY(EditDefaultsOnly)
+	float MaxDrivingForce = 107290;		// TODO fix a realistic value /learn more about acceleration
 };
