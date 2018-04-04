@@ -71,7 +71,3 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
 	//  Makes sure the turret rotation takes the shortest route to turn
 	Turret->RotateTurret(DeltaRotation.GetNormalized().Yaw);
 }
-
-
-
-
