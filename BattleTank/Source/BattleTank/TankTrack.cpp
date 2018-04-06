@@ -5,8 +5,6 @@
 
 void UTankTrack::SetThrottle(float Throttle)
 {
-	UE_LOG(LogTemp, Warning, TEXT("%f : %s: %f"), GetWorld()->GetTimeSeconds(), *GetName(), Throttle)
-
 	//TODO clamp throttle values to prevent players to go faster than possible
 	auto ForceApplied = GetForwardVector() * Throttle * MaxDrivingForce;
 	auto ForceLocation = GetComponentLocation();
