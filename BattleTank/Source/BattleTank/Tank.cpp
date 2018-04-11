@@ -10,7 +10,7 @@
 
 
 // TODO fix driving feel properly
-// TODO assign proper movement component handling in UE iput
+// TODO clip movement input values
 // TODO debug the barrel shaking & clip values when not moving crosshair
 
 // Sets default values
@@ -20,8 +20,6 @@ ATank::ATank()
 	PrimaryActorTick.bCanEverTick = false;
 
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("TankAimingComponent"));
-	// TODO finish the assignment & check the challenge again to follow properly 
-	TankMovementComponent = CreateDefaultSubobject<UTankMovementComponent>(FName("TankMovementComponent"));
 }
 
 // Called when the game starts or when spawned
