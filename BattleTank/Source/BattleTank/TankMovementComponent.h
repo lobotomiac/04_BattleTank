@@ -20,10 +20,14 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void Initialise(UTankTrack* LeftTrackToSet, UTankTrack* RightTrackToSet);
 
-	// amount of movement depending on the throw of the analog/mushroom key on controllers 
-	UFUNCTION(BlueprintCallable, Category = Movement)
+	// amount of movement forward depending on the throw of the analog/mushroom key on controllers 
+	UFUNCTION(BlueprintCallable, Category = Input)
 	void IntendMoveForward(float Throw);
 	
+	// amount of clockwise rotation depending on the throw of the analog/mushroom key on controllers 
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void IntendTurnRight(float Throw);
+
 private:
 	UTankTrack * LeftTrack = nullptr;
 	UTankTrack * RightTrack = nullptr;
