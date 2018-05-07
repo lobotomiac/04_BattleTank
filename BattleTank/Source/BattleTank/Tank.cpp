@@ -12,6 +12,8 @@
 // TODO fix driving feel properly
 // TODO clip movement input values
 // TODO debug the barrel shaking & clip values when not moving crosshair
+// TODO fix camera not pointing in tank direction at start
+
 
 // Sets default values
 ATank::ATank()
