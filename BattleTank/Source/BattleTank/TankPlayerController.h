@@ -24,9 +24,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private:
+protected:
+	UFUNCTION(BlueprintCallable, Category = Setup)
 	ATank * GetControlledTank() const;
-	
+
+private:
 	FVector OutHitLocation;	// Out Parameter
 
 	void AimTowardsCrosshair();
