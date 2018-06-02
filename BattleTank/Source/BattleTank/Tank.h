@@ -7,9 +7,10 @@
 #include "Engine/World.h"
 #include "Tank.generated.h"
 
+class UTankTurret;
 class UTankBarrel; 
-class UTankAimingComponent;	
 class AProjectile;
+class UTankAimingComponent;	
 class UTankMovementComponent;
 
 
@@ -24,7 +25,6 @@ public:
 
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 	
@@ -32,20 +32,9 @@ protected:
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 public:	
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	//	Called to aim at either crosshair(player) or player(AI)
 	virtual void AimAt(FVector OutHitLocation) const;
 	
-	// Delegating SetbarrelReference to the aiming component
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	// Delegating SetTurretReference to the aiming component
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
-
 	// starting value, overridable in blueprint / find reasonable value
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float LaunchSpeed = 100000;	
@@ -56,9 +45,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
+	UPROPERTY(BlueprintReadOnly)
 	UTankBarrel* Barrel = nullptr;
 
 	float ReloadTime = 3.0f;
-
 	double LastFireTime = 0.0;
 };

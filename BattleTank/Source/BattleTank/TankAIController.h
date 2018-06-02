@@ -26,6 +26,6 @@ public:
 	ATank * PlayerTank = nullptr;
 
 	// how close can the AI tank get before stopping movement
-	float AcceptanceRadius = 30.0f;
+	float AcceptanceRadius = 3000.0f;
 
 };
