@@ -6,7 +6,6 @@
 #include "GameFramework/NavMovementComponent.h"
 #include "TankMovementComponent.generated.h"
 
-// forward declaration
 class UTankTrack;
 
 /**
