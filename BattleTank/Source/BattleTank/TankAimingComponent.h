@@ -33,18 +33,14 @@ public:
 public:	
 	
 	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret* TurretToSet);
+	void Initialise(UTankTurret *TurretToSet, UTankBarrel *BarrelToSet);
 
 	void AimAt(FVector OutHitLocation, float LaunchSpeed) const;
 
 private:
+	UTankTurret * Turret = nullptr;
 	UTankBarrel* Barrel = nullptr;
 	void MoveBarrel(FVector AimDirection) const;
-
-	UTankTurret* Turret = nullptr;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = State)
