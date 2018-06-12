@@ -50,4 +50,6 @@ public:
 	float ReloadTime = 3.0f;
 
 	double LastFireTime = 0.0;
+	
+
 };
