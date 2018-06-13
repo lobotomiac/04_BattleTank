@@ -9,9 +9,10 @@
 
 
 class ATank;
+class UTankAimingComponent;
 
 /**
- * 
+ *	Responsible for helping player aim 
  */
 UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
@@ -28,16 +29,18 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	ATank * GetControlledTank() const;
 
+	UFUNCTION(BlueprintImplementableEvent, Category = Setup)
+	void FoundAimingComponent(UTankAimingComponent* AimComponentReference);
+
 private:
 	FVector OutHitLocation;	// Out Parameter
 
 	void AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
-	
-	float ViewportSizeXLocation;
 
-	float ViewportSizeYLocation;
+	float ViewportSizeXLocation = 0.5;
+	float ViewportSizeYLocation = 0.33333;
 	
 	// Find aiming coordinates in 3D space
 	bool CrosshairAimDirection(FVector2D ScreenLocation, FVector &AimDirection) const;
