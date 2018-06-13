@@ -26,10 +26,9 @@ ATank::ATank()
 
 void ATank::BeginPlay()
 {
-	Super::BeginPlay();
-
 	auto TankName = GetName();
 	UE_LOG(LogTemp, Warning, TEXT("e444d3e7:: %s cpp BeginPlay()"), *TankName)
+	Super::BeginPlay();
 }
 
 
