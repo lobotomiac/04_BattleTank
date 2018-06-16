@@ -10,13 +10,14 @@
 	Super::BeginPlay();
 
 	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
-	if (AimingComponent)
+	if (!ensure(AimingComponent))
 	{
-		FoundAimingComponent(AimingComponent);
+		UE_LOG(LogTemp, Warning, TEXT("AimingComponent reference not found on Begin Play."))
+		return;
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AimingComponent reference not found on Begin Play."))
+		FoundAimingComponent(AimingComponent);
 	}
 }
 
@@ -29,7 +30,7 @@
 
  void ATankPlayerController::AimTowardsCrosshair()
  {
-	 if (!GetControlledTank()) { return; }
+	 if (!ensure (GetControlledTank())) { return; }
 
 	 if (GetSightRayHitLocation(OutHitLocation))
 	 {
@@ -63,20 +64,14 @@
 	 FVector End = Start + (AimDirection * LineTraceRange);
 	 FCollisionQueryParams Params;
 	 Params.AddIgnoredActor(GetPawn());
-	 if (GetWorld()->LineTraceSingleByChannel(
-		 HitResult,
-		 Start,
-		 End,
-		 ECC_Visibility,
-		 Params)
-		 )
+	 if (GetWorld()->LineTraceSingleByChannel (HitResult, Start, End, ECC_Visibility, Params))
 	 {
-	 OutHitLocation = HitResult.Location;
-	 return true;
+		 OutHitLocation = HitResult.Location;
+		 return true;
 	 }
 	 OutHitLocation = FVector(0);
 	 return false;
-	 }
+}
 
  bool ATankPlayerController::CrosshairAimDirection(FVector2D ScreenLocation, FVector &AimDirection) const
  {
@@ -85,7 +80,10 @@
 	{
 		return true;
 	}
-	else { return false; }
+	else
+	{
+		return false;
+	}
  }
 
 

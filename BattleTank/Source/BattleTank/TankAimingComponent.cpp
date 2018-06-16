@@ -24,15 +24,12 @@ void UTankAimingComponent::Initialise(UTankTurret * TurretToSet, UTankBarrel * B
 
 void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) const
 {
-	if (!Barrel) { return; }
+	if (!ensure(Barrel)) { return; }
 
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("LaunchPoint"));
 
-
-
-	bool ProjectileAimSolution = UGameplayStatics::SuggestProjectileVelocity
-	(
+	bool ProjectileAimSolution = UGameplayStatics::SuggestProjectileVelocity (
 		this,
 		OutLaunchVelocity,
 		StartLocation,
@@ -59,7 +56,7 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation, float LaunchSpeed) cons
 
 void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
 {
-	if (!Barrel || !Turret) { return; }
+	if (!ensure (Barrel && Turret)) { return; }
 	auto BarrelRotation = Barrel->GetComponentRotation();
 	auto AimRotation = AimDirection.Rotation();
 	auto DeltaRotation = AimRotation - BarrelRotation;
