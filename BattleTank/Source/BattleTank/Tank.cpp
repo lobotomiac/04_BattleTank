@@ -5,7 +5,6 @@
 #include "Projectile.h"
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
 
 
 // TODO fix AI tanks driving backwards
@@ -20,15 +19,13 @@ ATank::ATank()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("e444d3e7:: %s Cpp Constructor."), *TankName)
 }
 
 void ATank::BeginPlay()
 {
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("e444d3e7:: %s cpp BeginPlay()"), *TankName)
 	Super::BeginPlay();
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
+	Barrel = FindComponentByClass<UTankBarrel>();
 }
 
 

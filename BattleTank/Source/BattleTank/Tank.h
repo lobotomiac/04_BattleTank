@@ -10,8 +10,6 @@
 class UTankBarrel; 
 class UTankAimingComponent;	
 class AProjectile;
-class UTankMovementComponent;
-
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -27,9 +25,6 @@ public:
 protected:
 	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
-	
-	UPROPERTY(BlueprintReadOnly)
-	UTankMovementComponent* TankMovementComponent = nullptr;
 
 public:	
 		//	Called to aim at either crosshair(player) or player(AI)

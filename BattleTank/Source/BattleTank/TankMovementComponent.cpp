@@ -15,7 +15,6 @@ void UTankMovementComponent::RequestDirectMove(const FVector & MoveVelocity, boo
 	// No need to call Super as we're replacing the functionality completely
 	auto TankForward = GetOwner()->GetActorForwardVector().GetSafeNormal();
 	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
-	// UE_LOG(LogTemp, Warning, TEXT("Time: %f |  velocity: %s"), GetWorld()->GetTimeSeconds(),  *AIForwardIntention.ToString());
 	// how fast we would like to go (how far and in what direction the controller has been pressed/pushed)
 	auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
 	IntendMoveForward(ForwardThrow);

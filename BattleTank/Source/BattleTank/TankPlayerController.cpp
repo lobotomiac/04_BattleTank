@@ -12,13 +12,9 @@
 	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponent))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("AimingComponent reference not found on Begin Play."))
 		return;
 	}
-	else
-	{
 		FoundAimingComponent(AimingComponent);
-	}
 }
 
  void ATankPlayerController::Tick(float DeltaTime)
@@ -30,8 +26,6 @@
 
  void ATankPlayerController::AimTowardsCrosshair()
  {
-	 if (!ensure (GetControlledTank())) { return; }
-
 	 if (GetSightRayHitLocation(OutHitLocation))
 	 {
 		 GetControlledTank()->AimAt(OutHitLocation);
