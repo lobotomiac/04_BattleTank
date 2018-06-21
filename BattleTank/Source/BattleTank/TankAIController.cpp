@@ -7,13 +7,18 @@
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
+	
+	ControlledTank = GetPawn();
 
-	auto ControlledTank = GetPawn();
 	if (!ControlledTank)
 	{
 		return;
 	}
 	AIAimingComponent = ControlledTank->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AIAimingComponent))
+	{
+		return;
+	}
 	PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
 }
 
@@ -34,6 +39,6 @@ void ATankAIController::Tick(float DeltaTime)
 		return;
 	}
 	AIAimingComponent->AimAt(PlayerTank->GetActorLocation());
-	//TODO fix firing && fire if ready
-	// ControlledTank->Fire();
+	// fire if ready
+	AIAimingComponent->Fire();
 }

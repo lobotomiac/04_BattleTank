@@ -23,25 +23,4 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	Barrel = FindComponentByClass<UTankBarrel>();
-}
-
-
-void ATank::Fire()
-{
-	if (!ensure (Barrel))
-	{
-		return;
-	}
-	
-	bool IsReloaded = (GetWorld()->GetTimeSeconds() - LastFireTime) > ReloadTime;
-	if (IsReloaded)
-	{
-		// spawn a projectile at the socket location on the barrel
-	/*	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation("LaunchPoint"), Barrel->GetSocketRotation("LaunchPoint"));
-
-		Projectile->LaunchProjectile(LaunchSpeed);*/
-
-		LastFireTime = GetWorld()->GetTimeSeconds();
-	}
 }

@@ -21,18 +21,4 @@ public:
 
 	virtual void BeginPlay() override;
 
-public:	
-	UFUNCTION(BlueprintCallable, Category = Firing)
-	void Fire();
-
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
-	TSubclassOf<AProjectile> ProjectileBlueprint;
-
-	UTankBarrel* Barrel = nullptr; // TODO remove
-
-	float ReloadTime = 3.0f;
-
-	double LastFireTime = 0.0;
-	
-
 };
