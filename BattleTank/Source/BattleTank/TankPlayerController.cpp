@@ -2,14 +2,14 @@
 
 #include "TankPlayerController.h"
 #include "TankAimingComponent.h"
-#include "Tank.h"
+
 
 
  void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
-	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	
+	AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponent))
 	{
 		return;
@@ -28,7 +28,11 @@
  {
 	 if (GetSightRayHitLocation(OutHitLocation))
 	 {
-		 GetControlledTank()->AimAt(OutHitLocation);
+		 if (!AimingComponent)
+		 {
+			 return;
+		 }
+		 AimingComponent->AimAt(OutHitLocation);
 	 } 
  }
 
@@ -79,12 +83,3 @@
 		return false;
 	}
  }
-
-
-
-ATank* ATankPlayerController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
-
-

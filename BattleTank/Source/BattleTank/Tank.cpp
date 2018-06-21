@@ -4,7 +4,6 @@
 #include "Engine/World.h"
 #include "Projectile.h"
 #include "TankBarrel.h"
-#include "TankAimingComponent.h"
 
 
 // TODO fix AI tanks driving backwards
@@ -24,7 +23,6 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 	Barrel = FindComponentByClass<UTankBarrel>();
 }
 
@@ -40,20 +38,10 @@ void ATank::Fire()
 	if (IsReloaded)
 	{
 		// spawn a projectile at the socket location on the barrel
-		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation("LaunchPoint"), Barrel->GetSocketRotation("LaunchPoint"));
+	/*	AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation("LaunchPoint"), Barrel->GetSocketRotation("LaunchPoint"));
 
-		Projectile->LaunchProjectile(LaunchSpeed);
+		Projectile->LaunchProjectile(LaunchSpeed);*/
 
 		LastFireTime = GetWorld()->GetTimeSeconds();
 	}
-
-	
 }
-
-void ATank::AimAt(FVector OutHitLocation) const
-{
-	if (!ensure (TankAimingComponent))	{  return;	}
-	TankAimingComponent->AimAt(OutHitLocation, LaunchSpeed);
-}
-
-

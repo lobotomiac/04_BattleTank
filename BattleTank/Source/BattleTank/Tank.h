@@ -8,7 +8,6 @@
 #include "Tank.generated.h"
 
 class UTankBarrel; 
-class UTankAimingComponent;	
 class AProjectile;
 
 UCLASS()
@@ -22,18 +21,7 @@ public:
 
 	virtual void BeginPlay() override;
 
-protected:
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
-
 public:	
-		//	Called to aim at either crosshair(player) or player(AI)
-	virtual void AimAt(FVector OutHitLocation) const;
-
-	// starting value, overridable in blueprint / find reasonable value
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float LaunchSpeed = 100000;	
-
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
 

@@ -6,7 +6,7 @@
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
-class ATank;
+class UTankAimingComponent;
 
 /**
  * 
@@ -20,12 +20,15 @@ private:
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float) override;
-
-public:
-	ATank * AIControlledTank = nullptr;
-	ATank * PlayerTank = nullptr;
-
 	// how close can the AI tank get before stopping movement
 	float AcceptanceRadius = 30.0f;
+
+	APawn* PlayerTank = nullptr;
+	APawn* ControlledTank = nullptr;
+
+public:
+	UTankAimingComponent* AIAimingComponent = nullptr;
+
+	
 
 };
