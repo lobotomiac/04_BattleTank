@@ -10,6 +10,6 @@ void UTankBarrel::ElevateBarrel(float RelativeChangeSpeed)
 	auto PitchChange = FMath::Clamp<float>(RelativeChangeSpeed, -1.0, 1.0) * MaxBarrelElevationChangeSpeed * GetWorld()->DeltaTimeSeconds;
 
 	auto NewElevation = RelativeRotation.Pitch + PitchChange;
-
+	// TODO fix barrel rotation to be more precise with the aim 
 	SetRelativeRotation(FRotator(FMath::Clamp(NewElevation, MinElevation, MaxElevation), 0.0, 0.0));
 }

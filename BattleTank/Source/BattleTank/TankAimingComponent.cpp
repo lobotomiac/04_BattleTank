@@ -22,22 +22,31 @@ void UTankAimingComponent::BeginPlay()
 }
 
 
-void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
-{
-	if ((GetWorld()->GetTimeSeconds() - LastFireTime) > ReloadTime)
-	{
-		FiringState = EFiringStatus::Reloading;
-	}
-}
-
-
 void UTankAimingComponent::Initialise(UTankTurret * TurretToSet, UTankBarrel * BarrelToSet)
 {
 	Turret = TurretToSet;
 	Barrel = BarrelToSet;
 }
 
-void UTankAimingComponent::AimAt(FVector OutHitLocation) const
+
+void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
+{
+	if ((GetWorld()->GetTimeSeconds() - LastFireTime) < ReloadTime)
+	{
+		FiringState = EFiringStatus::Reloading;
+	}
+	else if (IsBarrelMoving())
+	{
+		FiringState = EFiringStatus::Aiming;
+	}
+	else
+	{
+		FiringState = EFiringStatus::Locked;
+	}
+}
+
+
+void UTankAimingComponent::AimAt(FVector OutHitLocation)
 {
 	if (!ensure(Barrel)) { return; }
 
@@ -60,7 +69,7 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation) const
 	);
 	if (ProjectileAimSolution)
 	{
-		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
+		AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrel(AimDirection);
 	}
 	else 
@@ -69,7 +78,7 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation) const
 	}
 }
 
-void UTankAimingComponent::MoveBarrel(FVector AimDirection) const
+void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 {
 	if (!ensure(Barrel) || !ensure(Turret)) { return; }
 	auto BarrelRotation = Barrel->GetComponentRotation();
@@ -89,7 +98,6 @@ void UTankAimingComponent::Fire()
 	{
 		return;
 	}
-
 	if (FiringState != EFiringStatus::Reloading)
 	{
 		// spawn a projectile at the socket location on the barrel
@@ -101,3 +109,13 @@ void UTankAimingComponent::Fire()
 }
 
 
+bool UTankAimingComponent::IsBarrelMoving()
+{
+	if (!ensure(Barrel))
+	{
+		return false;
+	}
+	auto BarrelForwardVector = Barrel->GetForwardVector();
+	UE_LOG(LogTemp, Warning, TEXT("Barrel: %s ||| Aim: %s"), *BarrelForwardVector.ToString(), *AimDirection.ToString())
+	return !AimDirection.Equals(BarrelForwardVector, 0.01);
+}

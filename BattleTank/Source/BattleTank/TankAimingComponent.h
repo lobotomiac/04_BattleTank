@@ -34,7 +34,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void Initialise(UTankTurret *TurretToSet, UTankBarrel *BarrelToSet);
 
-	void AimAt(FVector OutHitLocation) const;
+	void AimAt(FVector OutHitLocation);
 
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
@@ -50,13 +50,17 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	double LastFireTime = 0.0;
 	
+	FVector AimDirection;
+
 	UTankTurret * Turret = nullptr;
 	UTankBarrel* Barrel = nullptr;
 
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	void MoveBarrel(FVector AimDirection) const;
+	void MoveBarrel(FVector AimDirection);
+
+	bool IsBarrelMoving(void);
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = State)
