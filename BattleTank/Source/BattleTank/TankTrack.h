@@ -22,4 +22,15 @@ public:
 	// Max driving force in Newtons
 	UPROPERTY(EditDefaultsOnly)
 	float MaxDrivingForce = 107290;		// TODO fix a realistic value /learn more about acceleration
+
+private:
+	virtual void BeginPlay() override;
+
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
+	UTankTrack();
+
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) override;
+
 };
