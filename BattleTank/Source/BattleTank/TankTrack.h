@@ -26,11 +26,16 @@ public:
 private:
 	virtual void BeginPlay() override;
 
+	float CurrentThrottle = 0.0f;
+
+	
+	void DriveTrack();
+
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	UTankTrack();
 
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction) override;
+	void SlipCorrection();
 
 };
