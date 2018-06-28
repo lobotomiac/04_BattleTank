@@ -29,6 +29,4 @@ private:
 public:
 	UTankAimingComponent* AIAimingComponent = nullptr;
 
-	
-
 };

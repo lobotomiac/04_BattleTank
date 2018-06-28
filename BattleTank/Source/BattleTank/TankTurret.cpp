@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankTurret.h"
+#include "Public/Math/UnrealMathUtility.h"
 
 
 /// Rotating the turret's yaw rotation
@@ -17,10 +18,9 @@ void UTankTurret::RotateTurret(float RelativeChangeSpeed)
 	}
 	
 	// clamping the speed of rotation
-	auto YawChange = FMath::Clamp<float>(RelativeChangeSpeed, 1.0, -1.0) * MaxTurretRotation * GetWorld()->DeltaTimeSeconds;
+	float YawChange = FMath::Clamp<float>(RelativeChangeSpeed, 1.0, -1.0) * MaxTurretRotation * GetWorld()->DeltaTimeSeconds;
 	
 	auto NewRotation = RelativeRotation.Yaw - YawChange;
 	SetRelativeRotation(FRotator(0.0, NewRotation, 0.0));
-
 }
 

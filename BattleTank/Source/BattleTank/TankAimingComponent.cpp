@@ -118,5 +118,5 @@ bool UTankAimingComponent::IsBarrelMoving()
 	auto BarrelForwardVector = Barrel->GetForwardVector();
 	// TODO Fix the difference between The barrel and Aim direction
 	//UE_LOG(LogTemp, Warning, TEXT("Barrel: %s ||| Aim: %s"), *BarrelForwardVector.ToString(), *AimDirection.ToString())
-	return !AimDirection.Equals(BarrelForwardVector, 0.01);
+	return !AimDirection.Equals(BarrelForwardVector, 0.03);
 }
