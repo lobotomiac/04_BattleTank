@@ -13,7 +13,8 @@ enum class EFiringState : uint8
 {
 	Reloading,
 	Locked,
-	Aiming
+	Aiming,
+	Empty
 };
 
 // forward declaration
@@ -33,13 +34,19 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void Initialise(UTankTurret *TurretToSet, UTankBarrel *BarrelToSet);
-
+	
 	void AimAt(FVector OutHitLocation);
-
+	// Launches the projectile
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
+	// Reduces the amount of ammunition by one ( 1 )
+	UFUNCTION(BlueprintCallable, Category = Firing)
+	void AmmunitionCount();
 
 	EFiringState GetFiringState() const;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Firing)
+	int32 Ammunition = 3;
 
 private:
 	// starting value, overridable in blueprint / find reasonable value

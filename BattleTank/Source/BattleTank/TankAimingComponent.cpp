@@ -29,17 +29,24 @@ void UTankAimingComponent::Initialise(UTankTurret * TurretToSet, UTankBarrel * B
 
 void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction * ThisTickFunction)
 {
-	if ((GetWorld()->GetTimeSeconds() - LastFireTime) < ReloadTime)
+	if (Ammunition > 0)
 	{
-		FiringState = EFiringState::Reloading;
-	}
-	else if (IsBarrelMoving())
-	{
-		FiringState = EFiringState::Aiming;
+		if ((GetWorld()->GetTimeSeconds() - LastFireTime) < ReloadTime)
+		{
+			FiringState = EFiringState::Reloading;
+		}
+		else if (IsBarrelMoving())
+		{
+			FiringState = EFiringState::Aiming;
+		}
+		else if (!IsBarrelMoving())
+		{
+			FiringState = EFiringState::Locked;
+		}
 	}
 	else
 	{
-		FiringState = EFiringState::Locked;
+		FiringState = EFiringState::Empty;
 	}
 }
 
@@ -89,24 +96,6 @@ void UTankAimingComponent::MoveBarrel(FVector AimDirection)
 	Turret->RotateTurret(DeltaRotation.GetNormalized().Yaw);
 }
 
-
-void UTankAimingComponent::Fire()
-{
-	if (!ensure(Barrel && ProjectileBlueprint))
-	{
-		return;
-	}
-	if (FiringState != EFiringState::Reloading)
-	{
-		// spawn a projectile at the socket location on the barrel
-		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation("LaunchPoint"), Barrel->GetSocketRotation("LaunchPoint"));
-		Projectile->LaunchProjectile(LaunchSpeed);
-
-		LastFireTime = GetWorld()->GetTimeSeconds();
-	}
-}
-
-
 bool UTankAimingComponent::IsBarrelMoving()
 {
 	if (!ensure(Barrel))
@@ -115,8 +104,30 @@ bool UTankAimingComponent::IsBarrelMoving()
 	}
 	auto BarrelForwardVector = Barrel->GetForwardVector();
 	// TODO Fix the difference between The barrel and Aim direction
-	//UE_LOG(LogTemp, Warning, TEXT("Barrel: %s ||| Aim: %s"), *BarrelForwardVector.ToString(), *AimDirection.ToString())
 	return !AimDirection.Equals(BarrelForwardVector, 0.02);
+}
+
+
+void UTankAimingComponent::Fire()
+{
+	if (!ensure(Barrel && ProjectileBlueprint))
+	{
+		return;
+	}
+	if (FiringState != EFiringState::Reloading && FiringState != EFiringState::Empty)
+	{
+		// spawn a projectile at the socket location on the barrel
+		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation("LaunchPoint"), Barrel->GetSocketRotation("LaunchPoint"));
+		Projectile->LaunchProjectile(LaunchSpeed);
+
+		LastFireTime = GetWorld()->GetTimeSeconds();
+		AmmunitionCount();
+	}
+}
+
+void UTankAimingComponent::AmmunitionCount()
+{
+	--Ammunition;
 }
 
 EFiringState UTankAimingComponent::GetFiringState() const
