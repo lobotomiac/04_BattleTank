@@ -7,9 +7,12 @@
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
-	
-	ControlledTank = GetPawn();
+}
 
+void ATankAIController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	auto ControlledTank = GetPawn();
 	if (!ControlledTank)
 	{
 		return;
@@ -19,20 +22,13 @@ void ATankAIController::BeginPlay()
 	{
 		return;
 	}
-	PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
-}
-
-void ATankAIController::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	
+	auto PlayerTank = GetWorld()->GetFirstPlayerController()->GetPawn();
 	if (!ensure(PlayerTank))
 	{
 		return;
 	}
 	//  move towards the player
 	MoveToActor(PlayerTank, AcceptanceRadius);
-
 	// AI aims towards the player
 	if (!ensure(ControlledTank))
 	{
@@ -40,5 +36,8 @@ void ATankAIController::Tick(float DeltaTime)
 	}
 	AIAimingComponent->AimAt(PlayerTank->GetActorLocation());
 	// fire if ready
-	AIAimingComponent->Fire();
+	if (AIAimingComponent->GetFiringState() == EFiringState::Locked)
+	{
+		AIAimingComponent->Fire();
+	}
 }

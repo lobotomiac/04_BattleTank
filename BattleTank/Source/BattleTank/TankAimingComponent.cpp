@@ -12,13 +12,11 @@ UTankAimingComponent::UTankAimingComponent()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;		// should it tick? 
-	
-	// ...
 }
 
 void UTankAimingComponent::BeginPlay()
 {
-
+	Super::BeginPlay();
 }
 
 
@@ -33,15 +31,15 @@ void UTankAimingComponent::TickComponent(float DeltaTime, ELevelTick TickType, F
 {
 	if ((GetWorld()->GetTimeSeconds() - LastFireTime) < ReloadTime)
 	{
-		FiringState = EFiringStatus::Reloading;
+		FiringState = EFiringState::Reloading;
 	}
 	else if (IsBarrelMoving())
 	{
-		FiringState = EFiringStatus::Aiming;
+		FiringState = EFiringState::Aiming;
 	}
 	else
 	{
-		FiringState = EFiringStatus::Locked;
+		FiringState = EFiringState::Locked;
 	}
 }
 
@@ -98,7 +96,7 @@ void UTankAimingComponent::Fire()
 	{
 		return;
 	}
-	if (FiringState != EFiringStatus::Reloading)
+	if (FiringState != EFiringState::Reloading)
 	{
 		// spawn a projectile at the socket location on the barrel
 		AProjectile* Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileBlueprint, Barrel->GetSocketLocation("LaunchPoint"), Barrel->GetSocketRotation("LaunchPoint"));
@@ -118,5 +116,10 @@ bool UTankAimingComponent::IsBarrelMoving()
 	auto BarrelForwardVector = Barrel->GetForwardVector();
 	// TODO Fix the difference between The barrel and Aim direction
 	//UE_LOG(LogTemp, Warning, TEXT("Barrel: %s ||| Aim: %s"), *BarrelForwardVector.ToString(), *AimDirection.ToString())
-	return !AimDirection.Equals(BarrelForwardVector, 0.03);
+	return !AimDirection.Equals(BarrelForwardVector, 0.02);
+}
+
+EFiringState UTankAimingComponent::GetFiringState() const
+{
+	return FiringState;
 }

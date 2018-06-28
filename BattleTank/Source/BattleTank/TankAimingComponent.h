@@ -9,7 +9,7 @@
 #include "TankAimingComponent.generated.h"
 
 UENUM()
-enum class EFiringStatus : uint8
+enum class EFiringState : uint8
 {
 	Reloading,
 	Locked,
@@ -39,6 +39,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
 
+	EFiringState GetFiringState() const;
+
 private:
 	// starting value, overridable in blueprint / find reasonable value
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
@@ -64,7 +66,7 @@ private:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = State)
-	EFiringStatus FiringState = EFiringStatus::Reloading;
+	EFiringState FiringState = EFiringState::Reloading;
 
 	virtual void BeginPlay() override;
 
