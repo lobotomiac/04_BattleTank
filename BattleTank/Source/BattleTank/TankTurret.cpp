@@ -7,7 +7,6 @@
 /// Rotating the turret's yaw rotation
 void UTankTurret::RotateTurret(float RelativeChangeSpeed)
 {
-	//
 	if (FMath::Abs(RelativeChangeSpeed) > 180)
 	{
 		RelativeChangeSpeed *= -1;
