@@ -27,7 +27,6 @@
  void ATankPlayerController::AimTowardsCrosshair()
  {
 	 bool bGotHitLocation = GetSightRayHitLocation(OutHitLocation);
-	 UE_LOG(LogTemp, Warning, TEXT("GotHitLocation: %i , %f"), bGotHitLocation, GetWorld()->GetTimeSeconds())
 	 if (bGotHitLocation)
 	 {
 		 if (!AimingComponent)

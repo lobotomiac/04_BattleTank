@@ -28,7 +28,6 @@ private:
 
 	float CurrentThrottle = 0.0f;
 
-	
 	void DriveTrack();
 
 	UFUNCTION()
@@ -37,5 +36,4 @@ private:
 	UTankTrack();
 
 	void SlipCorrection();
-
 };
