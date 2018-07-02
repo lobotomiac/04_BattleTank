@@ -8,6 +8,7 @@
 #include "Projectile.generated.h"
 
 class UProjectileMovementComponent;
+class URadialForceComponent;
 
 UCLASS()
 class BATTLETANK_API AProjectile : public AActor
@@ -30,11 +31,14 @@ private:
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
 	UPROPERTY(VisibleAnywhere)
-		UStaticMeshComponent* CollisionMesh = nullptr;
+	UStaticMeshComponent* CollisionMesh = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-		UParticleSystemComponent* LaunchBlast = nullptr;
+	UParticleSystemComponent* LaunchBlast = nullptr;
 
 	UPROPERTY(VisibleAnywhere)
-		UParticleSystemComponent* ImpactBlast = nullptr;
+	UParticleSystemComponent* ImpactBlast = nullptr;
+
+	UPROPERTY(VisibleAnywhere)
+	URadialForceComponent* ExplosionBlast = nullptr;
 };
