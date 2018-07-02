@@ -58,4 +58,14 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, U
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
 	ExplosionBlast->FireImpulse();
+
+	CollisionMesh->DestroyComponent();
+	SetRootComponent(ImpactBlast);
+	GetWorld()->GetTimerManager().SetTimer(DestroyTimerHandle, this, &AProjectile::OnTimerExpire, DestroyDelay, false);
+}
+
+void AProjectile::OnTimerExpire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("ASFUIH"))
+	AProjectile::Destroy();
 }

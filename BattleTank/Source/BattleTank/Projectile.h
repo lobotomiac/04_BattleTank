@@ -21,6 +21,9 @@ public:
 
 	void LaunchProjectile(float LaunchSpeed);
 
+	UPROPERTY(EditDefaultsOnly, Category = Timing)
+	float DestroyDelay = 0.5f;
+
 private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -41,4 +44,8 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	URadialForceComponent* ExplosionBlast = nullptr;
+
+	void OnTimerExpire();
+
+	FTimerHandle DestroyTimerHandle;
 };
