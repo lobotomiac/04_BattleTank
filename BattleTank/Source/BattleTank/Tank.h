@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -20,5 +20,15 @@ public:
 	ATank();
 
 	virtual void BeginPlay() override;
+
+	// called by the engine when damage is dealt (detects projectiles close enough automatically
+	virtual float TakeDamage(float DamageAmount,struct FDamageEvent const & DamageEvent,class AController * EventInstigator,AActor * DamageCauser) override;
+
+private:
+	UPROPERTY(EditDefaultsOnly, Category = Health)
+	int32 FullHealth = 100.0f;
+
+	UPROPERTY(VisibleAnywhere, Category = Health)
+	int32 CurrentHealth = FullHealth;
 
 };

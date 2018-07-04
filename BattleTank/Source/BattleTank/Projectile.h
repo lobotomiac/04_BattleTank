@@ -22,7 +22,11 @@ public:
 	void LaunchProjectile(float LaunchSpeed);
 
 	UPROPERTY(EditDefaultsOnly, Category = Timing)
-	float DestroyDelay = 0.5f;
+	float DestroyDelay = 3.0f;
+
+	UPROPERTY(EditDefaultsOnly)
+	float BaseProjectileDamage = 17.0f;
+
 
 private:
 	// Called when the game starts or when spawned

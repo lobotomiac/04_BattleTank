@@ -3,6 +3,7 @@
 #include "Projectile.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "PhysicsEngine/RadialForceComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
 
@@ -58,6 +59,15 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, U
 	LaunchBlast->Deactivate();
 	ImpactBlast->Activate();
 	ExplosionBlast->FireImpulse();
+	UGameplayStatics::ApplyRadialDamage(
+		this, 
+		BaseProjectileDamage, 
+		GetActorLocation(),
+		ExplosionBlast->Radius,		// for consistency 
+		UDamageType::StaticClass(), 
+		TArray<AActor*>()			// damage all actors
+	);
+
 
 	CollisionMesh->DestroyComponent();
 	SetRootComponent(ImpactBlast);
@@ -66,6 +76,5 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, U
 
 void AProjectile::OnTimerExpire()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ASFUIH"))
 	AProjectile::Destroy();
 }
