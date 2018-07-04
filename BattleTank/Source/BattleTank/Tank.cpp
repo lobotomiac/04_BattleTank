@@ -32,10 +32,11 @@ void ATank::BeginPlay()
 
 float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEvent, class AController * EventInstigator, AActor * DamageCauser)
 {
+	// getting int DamagePoints from DamageAmount
 	int32 DamagePoints = FGenericPlatformMath::RoundToInt(DamageAmount);
+	// clamp damage value to a reasonable amount && to prevent it from going below 0
 	auto DamageToApply = FMath::Clamp(DamagePoints, 0, CurrentHealth);
 
-	//UE_LOG(LogTemp, Warning, TEXT("DamageAmount: %f || DamageToApply: %i"), DamageAmount, DamageToApply)
 	CurrentHealth -= DamageToApply;
 	if (CurrentHealth <= 0)
 	{
@@ -48,4 +49,8 @@ float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEv
 	return DamageToApply;
 }
 
+float ATank::GetHealthPercentage()
+{
+	return (float)CurrentHealth / (float)FullHealth;
+}
 

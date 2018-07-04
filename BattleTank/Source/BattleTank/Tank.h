@@ -16,15 +16,19 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	ATank();
-
 	virtual void BeginPlay() override;
 
 	// called by the engine when damage is dealt (detects projectiles close enough automatically
 	virtual float TakeDamage(float DamageAmount,struct FDamageEvent const & DamageEvent,class AController * EventInstigator,AActor * DamageCauser) override;
 
+	// Returns a percentage of current health 
+	UFUNCTION(BlueprintPure, Category = Health)
+	float GetHealthPercentage();
+
 private:
+	// Sets default values for this pawn's properties
+	ATank();
+
 	UPROPERTY(EditDefaultsOnly, Category = Health)
 	int32 FullHealth = 100.0f;
 
