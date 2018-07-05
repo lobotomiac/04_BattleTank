@@ -2,6 +2,7 @@
 
 #include "TankAIController.h"
 #include "TankAimingComponent.h"
+#include "Tank.h"
 // Depends on movement component via pathfinding system
 
 void ATankAIController::BeginPlay()
@@ -40,4 +41,27 @@ void ATankAIController::Tick(float DeltaTime)
 	{
 		AIAimingComponent->Fire();
 	}
+}
+
+void ATankAIController::SetPawn(APawn* InPawn)
+{
+	Super::SetPawn(InPawn);
+	if (InPawn)
+	{
+		auto PossesedTank = Cast<ATank>(InPawn);
+
+		if (!ensure(PossesedTank))
+		{
+			return;
+		}
+			// Subscribe our local method to the tank's death event 
+			PossesedTank->OnDeath.AddUniqueDynamic(this, &ATankAIController::OnPossessedTankDeath);
+	}
+}
+
+
+void ATankAIController::OnPossessedTankDeath()
+{
+	// deposes the tank or turn off its controlls 
+	UE_LOG(LogTemp, Warning, TEXT("AI tank is destroyed"))
 }

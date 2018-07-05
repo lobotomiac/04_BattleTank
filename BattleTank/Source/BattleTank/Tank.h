@@ -10,6 +10,9 @@
 class UTankBarrel; 
 class AProjectile;
 
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDestructionBroadcast);
+
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
@@ -23,7 +26,9 @@ public:
 
 	// Returns a percentage of current health 
 	UFUNCTION(BlueprintPure, Category = Health)
-	float GetHealthPercentage();
+	float GetHealthPercentage() const;
+
+	FDestructionBroadcast OnDeath;
 
 private:
 	// Sets default values for this pawn's properties
