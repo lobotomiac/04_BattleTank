@@ -58,7 +58,7 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation)
 	FVector OutLaunchVelocity;
 	FVector StartLocation = Barrel->GetSocketLocation(FName("LaunchPoint"));
 
-	bool ProjectileAimSolution = UGameplayStatics::SuggestProjectileVelocity (
+	bool bProjectileAimSolution = UGameplayStatics::SuggestProjectileVelocity (
 		this,
 		OutLaunchVelocity,
 		StartLocation,
@@ -72,7 +72,7 @@ void UTankAimingComponent::AimAt(FVector OutHitLocation)
 		//TArray<AActor*>(),										//enable to trace path
 		//true													//enable to trace path
 	);
-	if (ProjectileAimSolution)
+	if (bProjectileAimSolution)
 	{
 		AimDirection = OutLaunchVelocity.GetSafeNormal();
 		MoveBarrel(AimDirection);

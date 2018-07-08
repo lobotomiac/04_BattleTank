@@ -28,16 +28,14 @@ public:
 	UFUNCTION(BlueprintPure, Category = Health)
 	float GetHealthPercentage() const;
 
+	UPROPERTY(BlueprintAssignable, Category = Death)
 	FDestructionBroadcast OnDeath;
 
 private:
-	// Sets default values for this pawn's properties
-	ATank();
-
-	UPROPERTY(EditDefaultsOnly, Category = Health)
-	int32 FullHealth = 100.0f;
 
 	UPROPERTY(VisibleAnywhere, Category = Health)
-	int32 CurrentHealth = FullHealth;
+	int32 CurrentHealth;
 
+	UPROPERTY(EditDefaultsOnly, Category = Health)
+	int32 FullHealth = 100;
 };

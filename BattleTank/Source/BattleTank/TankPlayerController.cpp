@@ -20,7 +20,10 @@
  void ATankPlayerController::Tick(float DeltaTime)
  {
 	 Super::Tick(DeltaTime);
-
+	 if (!GetPawn())
+	 {
+		 return;
+	 }
 	 AimTowardsCrosshair();
  }
 
@@ -50,12 +53,12 @@
 	if (CrosshairLookDirection(ScreenLocation, LookDirection))
 	{
 		// Line-Trace along that look direction, and see what we hit(up to max range)
-		return GetLookVectorHitLocation(LookDirection, OutHitLocation);
+		return GotLookVectorHitLocation(LookDirection, OutHitLocation);
 	}	
 	return false;
  }
 
- bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVector &OutHitLocation) const
+ bool ATankPlayerController::GotLookVectorHitLocation(FVector LookDirection, FVector &OutHitLocation) const
  {
 	 FHitResult HitResult;
 	 FVector Start = PlayerCameraManager->GetCameraLocation();
@@ -89,7 +92,8 @@
 
  void ATankPlayerController::OnPossessedTankDeath()
  {
-	 UE_LOG(LogTemp, Warning, TEXT ("Player Tank Destroyed"))
+	UE_LOG(LogTemp, Warning, TEXT("Player Tank Destroyed"))
+	APlayerController::StartSpectatingOnly();
  }
 
  bool ATankPlayerController::CrosshairLookDirection(FVector2D ScreenLocation, FVector &LookDirection) const

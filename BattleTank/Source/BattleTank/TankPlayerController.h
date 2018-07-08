@@ -45,7 +45,7 @@ private:
 	bool CrosshairLookDirection(FVector2D ScreenLocation, FVector &LookDirection) const;
 
 	// Line tracing to where the aim is, false if hitting sky, else true &  coordinates of hit collision with object
-	bool GetLookVectorHitLocation(FVector LookDirectionn, FVector &OutHitLocation) const;
+	bool GotLookVectorHitLocation(FVector LookDirectionn, FVector &OutHitLocation) const;
 
 	UPROPERTY(EditDefaultsOnly)
 	float LineTraceRange = 1000000;

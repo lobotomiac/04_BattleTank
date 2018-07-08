@@ -19,18 +19,16 @@ class BATTLETANK_API ATankAIController : public AAIController
 protected: 
 	// how close can the AI tank get before stopping movement
 	UPROPERTY(EditDefaultsOnly, Category = Setup)
-	float AcceptanceRadius = 3000.0f;
+	float AcceptanceRadius = 6000.0f;
 
 private:
 	virtual void BeginPlay() override;
 	virtual void Tick(float) override;
 	virtual void SetPawn(APawn* InPawn) override;
-
+	
 	UFUNCTION()
 	void OnPossessedTankDeath();
 
 public:
 	UTankAimingComponent* AIAimingComponent = nullptr;
-	
-	
 };
