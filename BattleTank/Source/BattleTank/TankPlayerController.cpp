@@ -65,7 +65,7 @@
 	 FVector End = Start + (LookDirection * LineTraceRange);
 	 FCollisionQueryParams Params;
 	 Params.AddIgnoredActor(GetPawn());
-	 if (GetWorld()->LineTraceSingleByChannel (HitResult, Start, End, ECC_Visibility, Params))
+	 if (GetWorld()->LineTraceSingleByChannel (HitResult, Start, End, ECC_Camera, Params))
 	 {
 		 OutHitLocation = HitResult.Location;
 		 return true;
