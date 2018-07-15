@@ -3,30 +3,38 @@
 #include "SprungWheel.h"
 #include "PhysicsEngine/PhysicsConstraintComponent.h"
 
+
 // Sets default values
 ASprungWheel::ASprungWheel()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
-
-	Mass = CreateDefaultSubobject<UStaticMeshComponent>("Mass");
-	SetRootComponent(Mass);
-	Mass->SetSimulatePhysics(true);
-
-	Wheel = CreateDefaultSubobject<UStaticMeshComponent>("Wheel");
-	Wheel->SetupAttachment(Mass);
-	Wheel->SetSimulatePhysics(true);
+	PrimaryActorTick.bCanEverTick = true;
 
 	PhysicsConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>("Physics Constraint");
-	PhysicsConstraint->SetupAttachment(Mass);
+	SetRootComponent(PhysicsConstraint);
 
+
+	Mass = CreateDefaultSubobject<UStaticMeshComponent>("Mass");
+	Mass->SetupAttachment(PhysicsConstraint);
+
+
+	Wheel = CreateDefaultSubobject<UStaticMeshComponent>("Wheel");
+	Wheel->SetupAttachment(PhysicsConstraint);	
 }
 
 // Called when the game starts or when spawned
 void ASprungWheel::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	if (GetAttachParentActor())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not NULL"))
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("NULL"))
+	}
 }
 
 // Called every frame
