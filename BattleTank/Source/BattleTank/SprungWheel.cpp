@@ -20,6 +20,7 @@ ASprungWheel::ASprungWheel()
 
 	Wheel = CreateDefaultSubobject<UStaticMeshComponent>("Wheel");
 	Wheel->SetupAttachment(PhysicsConstraint);	
+
 }
 
 // Called when the game starts or when spawned
