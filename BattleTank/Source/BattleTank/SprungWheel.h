@@ -9,6 +9,7 @@
 class UPhysicsConstraintComponent;
 
 
+
 UCLASS()
 class BATTLETANK_API ASprungWheel : public AActor
 {
@@ -23,14 +24,15 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
-	 
-	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Mass = nullptr;
+	void SetupConstraint();
+
+	UPROPERTY(VisibleAnywhere, Category = Components)
+	UStaticMeshComponent* SpawnPoint = nullptr;
 	
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = Components)
 	UStaticMeshComponent* Wheel = nullptr;
 
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(VisibleAnywhere, Category = Components)
 	UPhysicsConstraintComponent* PhysicsConstraint = nullptr;
 
 
