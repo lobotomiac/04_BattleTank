@@ -1,0 +1,83 @@
+Begin Object Class=/Script/Engine.Material Name="M_Mat_UnrealTech_automotive_01"
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_17"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScalarParameter Name="MaterialExpressionScalarParameter_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionScalarParameter Name="MaterialExpressionScalarParameter_20"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionVectorParameter Name="MaterialExpressionVectorParameter_0"
+   End Object
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_17"
+      A=(Expression=MaterialExpressionTextureSample'"M_Mat_UnrealTech_automotive_01:MaterialExpressionTextureSample_0"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression=MaterialExpressionVectorParameter'"M_Mat_UnrealTech_automotive_01:MaterialExpressionVectorParameter_0"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      MaterialExpressionEditorX=-144
+      MaterialExpressionEditorY=-208
+      MaterialExpressionGuid=0592910442AB09ECB6AE81B7D52252A4
+      Material=Material'"M_Mat_UnrealTech_automotive_01"'
+   End Object
+   Begin Object Name="MaterialExpressionScalarParameter_0"
+      DefaultValue=0.300000
+      ParameterName="Roughness"
+      ExpressionGUID=22DD5A974407514C3BB358926D5382F3
+      MaterialExpressionEditorX=-320
+      MaterialExpressionEditorY=160
+      MaterialExpressionGuid=087F127E4374C16902FEBDB8E880FBA3
+      Material=Material'"M_Mat_UnrealTech_automotive_01"'
+   End Object
+   Begin Object Name="MaterialExpressionScalarParameter_20"
+      DefaultValue=1.000000
+      ParameterName="Metallic"
+      ExpressionGUID=095936184273E5FD1E39DC955AD7F361
+      MaterialExpressionEditorX=-320
+      MaterialExpressionEditorY=80
+      MaterialExpressionGuid=E20931B7431B18BCF1894C9D087E9C55
+      Material=Material'"M_Mat_UnrealTech_automotive_01"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_1"
+      CoordinateIndex=2
+      MaterialExpressionEditorX=-592
+      MaterialExpressionEditorY=-336
+      MaterialExpressionGuid=8F98F6F54EC6D01199228FB470F58B37
+      Material=Material'"M_Mat_UnrealTech_automotive_01"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_0"
+      Coordinates=(Expression=MaterialExpressionTextureCoordinate'"M_Mat_UnrealTech_automotive_01:MaterialExpressionTextureCoordinate_1"')
+      Texture=Texture2D'"/Game/AutomotiveMaterials/LevelContent/PreviewMesh/T_Mat_UnrealTech_01_D.T_Mat_UnrealTech_01_D"'
+      MaterialExpressionEditorX=-432
+      MaterialExpressionEditorY=-336
+      MaterialExpressionGuid=1D8F68C54C6A74EE2881239C96C39631
+      Material=Material'"M_Mat_UnrealTech_automotive_01"'
+   End Object
+   Begin Object Name="MaterialExpressionVectorParameter_0"
+      DefaultValue=(R=0.835000,G=0.935231,B=1.000000,A=1.000000)
+      ExpressionGUID=539D885742EA0706FEDA8C8045E63B91
+      MaterialExpressionEditorX=-432
+      MaterialExpressionEditorY=-128
+      MaterialExpressionGuid=F06A70E044C3D6FAD4DA4BBC5A37C07C
+      Material=Material'"M_Mat_UnrealTech_automotive_01"'
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   BaseColor=(Expression=MaterialExpressionMultiply'"MaterialExpressionMultiply_17"')
+   Metallic=(Expression=MaterialExpressionScalarParameter'"MaterialExpressionScalarParameter_20"')
+   Roughness=(Expression=MaterialExpressionScalarParameter'"MaterialExpressionScalarParameter_0"')
+   TwoSided=True
+   bUsedWithStaticLighting=True
+   Expressions(0)=MaterialExpressionMultiply'"MaterialExpressionMultiply_17"'
+   Expressions(1)=MaterialExpressionScalarParameter'"MaterialExpressionScalarParameter_20"'
+   Expressions(2)=MaterialExpressionScalarParameter'"MaterialExpressionScalarParameter_0"'
+   Expressions(3)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_0"'
+   Expressions(4)=MaterialExpressionVectorParameter'"MaterialExpressionVectorParameter_0"'
+   Expressions(5)=MaterialExpressionTextureCoordinate'"MaterialExpressionTextureCoordinate_1"'
+   bCanMaskedBeAssumedOpaque=True
+   StateId=10F192AA47EBC849377004A3DED7A29A
+   ReferencedTextureGuids(0)=79BAD43A48DD3B48C4F1228E380F9DFF
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=8955C8C0402A73328627849A8732A844
+End Object

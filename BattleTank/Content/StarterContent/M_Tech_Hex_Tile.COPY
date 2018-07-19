@@ -1,0 +1,275 @@
+Begin Object Class=/Script/Engine.Material Name="M_Tech_Hex_Tile"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionVectorParameter Name="MaterialExpressionVectorParameter_26"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_28"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_27"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_26"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_25"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_14"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureCoordinate Name="MaterialExpressionTextureCoordinate_13"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_26"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMaterialFunctionCall Name="MaterialExpressionMaterialFunctionCall_3"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionLinearInterpolate Name="MaterialExpressionLinearInterpolate_5"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionLinearInterpolate Name="MaterialExpressionLinearInterpolate_30"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant3Vector Name="MaterialExpressionConstant3Vector_7"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant Name="MaterialExpressionConstant_42"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_3"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_29"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_27"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_26"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_25"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_2"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionComment Name="MaterialExpressionComment_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionBumpOffset Name="MaterialExpressionBumpOffset_3"
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="MaterialExpressionVectorParameter_26"
+      DefaultValue=(R=0.164566,G=0.183231,B=0.185000,A=1.000000)
+      ParameterName="Base Color"
+      ExpressionGUID=0C4BAFEF49EBFB9EA035CEB2C4B4C1A6
+      MaterialExpressionEditorX=-197
+      MaterialExpressionEditorY=-797
+      MaterialExpressionGuid=97118EA44FD91E9B41D1808DA31F0658
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_28"
+      Coordinates=(Expression=MaterialExpressionTextureCoordinate'"M_Tech_Hex_Tile:MaterialExpressionTextureCoordinate_14"')
+      Texture=Texture2D'"/Game/StarterContent/Textures/T_Tech_Hex_Tile_N.T_Tech_Hex_Tile_N"'
+      SamplerType=SAMPLERTYPE_Normal
+      MaterialExpressionEditorX=-700
+      MaterialExpressionEditorY=1980
+      MaterialExpressionGuid=2B2604C44B6D3A59BFD2DCAFE3657BC0
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_27"
+      Coordinates=(Expression=MaterialExpressionBumpOffset'"M_Tech_Hex_Tile:MaterialExpressionBumpOffset_3"')
+      Texture=Texture2D'"/Game/StarterContent/Textures/T_Tech_Hex_Tile_M.T_Tech_Hex_Tile_M"'
+      SamplerType=SAMPLERTYPE_LinearColor
+      MaterialExpressionEditorX=-960
+      MaterialExpressionEditorY=240
+      MaterialExpressionGuid=339953444FF60A0D63312B803E9EE33B
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_26"
+      Coordinates=(Expression=MaterialExpressionTextureCoordinate'"M_Tech_Hex_Tile:MaterialExpressionTextureCoordinate_13"')
+      Texture=Texture2D'"/Game/StarterContent/Textures/T_Tech_Hex_Tile_M.T_Tech_Hex_Tile_M"'
+      SamplerType=SAMPLERTYPE_LinearColor
+      MaterialExpressionEditorX=-1920
+      MaterialExpressionEditorY=920
+      MaterialExpressionGuid=E66FF91348E911E88BE09DAA292EAC0B
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_25"
+      Coordinates=(Expression=MaterialExpressionBumpOffset'"M_Tech_Hex_Tile:MaterialExpressionBumpOffset_3"')
+      Texture=Texture2D'"/Game/StarterContent/Textures/T_Tech_Hex_Tile_N.T_Tech_Hex_Tile_N"'
+      SamplerType=SAMPLERTYPE_Normal
+      MaterialExpressionEditorX=-960
+      MaterialExpressionEditorY=920
+      MaterialExpressionGuid=52F7EC6F4EF3CC98EC7790A3064C9F4B
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_14"
+      UTiling=8.000000
+      VTiling=8.000000
+      MaterialExpressionEditorX=-960
+      MaterialExpressionEditorY=2000
+      MaterialExpressionGuid=2D8490EC4E6E6EF08B9914ABF52906C6
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureCoordinate_13"
+      MaterialExpressionEditorX=-2140
+      MaterialExpressionEditorY=700
+      MaterialExpressionGuid=6FC6B5114518EA98E3BC28AC18030A43
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_26"
+      A=(Expression=MaterialExpressionVectorParameter'"M_Tech_Hex_Tile:MaterialExpressionVectorParameter_26"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression=MaterialExpressionTextureSample'"M_Tech_Hex_Tile:MaterialExpressionTextureSample_27"',OutputIndex=1,Mask=1,MaskR=1)
+      MaterialExpressionEditorX=160
+      MaterialExpressionEditorY=-640
+      MaterialExpressionGuid=7848D4924E7136868182179B740156A0
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionMaterialFunctionCall_3"
+      MaterialFunction=MaterialFunction'"/Engine/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.BlendAngleCorrectedNormals"'
+      FunctionInputs(0)=(ExpressionInputId=471965E548C55D27E606D3832C490AD3,Input=(Expression=MaterialExpressionTextureSample'"M_Tech_Hex_Tile:MaterialExpressionTextureSample_25"',InputName="BaseNormal",Mask=1,MaskR=1,MaskG=1,MaskB=1))
+      FunctionInputs(1)=(ExpressionInputId=7E2E487F49DE5A67E3A1EFA3FD83D041,Input=(Expression=MaterialExpressionLinearInterpolate'"M_Tech_Hex_Tile:MaterialExpressionLinearInterpolate_30"',InputName="AdditionalNormal"))
+      FunctionOutputs(0)=(ExpressionOutputId=E2F3EA0E41E2637BBAA2A4A0FEF38E6A,Output=(OutputName="Result"))
+      MaterialExpressionEditorX=340
+      MaterialExpressionEditorY=880
+      MaterialExpressionGuid=594C26074194C92FE5343FB6C09B77A2
+      Material=Material'"M_Tech_Hex_Tile"'
+      Outputs(0)=(OutputName="Result")
+   End Object
+   Begin Object Name="MaterialExpressionLinearInterpolate_5"
+      Alpha=(Expression=MaterialExpressionTextureSample'"M_Tech_Hex_Tile:MaterialExpressionTextureSample_27"',OutputIndex=2,Mask=1,MaskG=1)
+      ConstA=1.000000
+      ConstB=0.000000
+      MaterialExpressionEditorX=300
+      MaterialExpressionEditorY=200
+      MaterialExpressionGuid=3FBF30FB44A84BE0515EF4B0243951BD
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionLinearInterpolate_30"
+      A=(Expression=MaterialExpressionTextureSample'"M_Tech_Hex_Tile:MaterialExpressionTextureSample_28"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      B=(Expression=MaterialExpressionConstant3Vector'"M_Tech_Hex_Tile:MaterialExpressionConstant3Vector_7"')
+      Alpha=(Expression=MaterialExpressionTextureSample'"M_Tech_Hex_Tile:MaterialExpressionTextureSample_27"',OutputIndex=2,Mask=1,MaskG=1)
+      MaterialExpressionEditorX=-160
+      MaterialExpressionEditorY=1400
+      MaterialExpressionGuid=D4C5076B48432E2C64F951B2BCAC29E3
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionConstant3Vector_7"
+      Constant=(R=0.000000,G=0.000000,B=1.000000,A=0.000000)
+      MaterialExpressionEditorX=-500
+      MaterialExpressionEditorY=1460
+      MaterialExpressionGuid=CB34E5B1421570BE4EF7189B6A1C868D
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionConstant_42"
+      R=0.300000
+      MaterialExpressionEditorX=700
+      MaterialExpressionEditorY=460
+      MaterialExpressionGuid=FBDAFFB44EB40F11B645689E1DD9EC6A
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_3"
+      SizeX=440
+      SizeY=260
+      Text="Metallic from mask channel"
+      MaterialExpressionEditorX=140
+      MaterialExpressionEditorY=120
+      MaterialExpressionGuid=6A1E14A54CF1C309809ECAB6624050A0
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_29"
+      SizeX=380
+      SizeY=420
+      Text="Normal texture sample"
+      MaterialExpressionEditorX=-1020
+      MaterialExpressionEditorY=800
+      MaterialExpressionGuid=B999FC7343CE729F05D18C82ABFC5D0C
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_27"
+      SizeX=865
+      SizeY=563
+      Text="BumpOffset"
+      MaterialExpressionEditorX=-2160
+      MaterialExpressionEditorY=620
+      MaterialExpressionGuid=B28DD53740CAF441F0260A8C2837090C
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_26"
+      SizeX=780
+      SizeY=400
+      Text="Detail Normal texture sample"
+      MaterialExpressionEditorX=-1020
+      MaterialExpressionEditorY=1860
+      MaterialExpressionGuid=1ABE2043492617A21B6EBB980AE90E8E
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_25"
+      SizeX=592
+      SizeY=355
+      Text="Mask out detail normal between tiles"
+      MaterialExpressionEditorX=-560
+      MaterialExpressionEditorY=1340
+      MaterialExpressionGuid=52B1618E4A32AA7DCDA57480B6925D9F
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_2"
+      SizeX=302
+      SizeY=327
+      Text="Mask texture"
+      MaterialExpressionEditorX=-1022
+      MaterialExpressionEditorY=177
+      MaterialExpressionGuid=6D07E7604B8177CAFCA8C0AB26A7AFD6
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_1"
+      SizeX=580
+      SizeY=220
+      Text="Combine both normal texture samples"
+      MaterialExpressionEditorX=200
+      MaterialExpressionEditorY=800
+      MaterialExpressionGuid=0A7C98034E319C68764AAE9F4805D312
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionComment_0"
+      SizeX=577
+      SizeY=527
+      Text="Base Color multiplied by mask channel"
+      MaterialExpressionEditorX=-260
+      MaterialExpressionEditorY=-860
+      MaterialExpressionGuid=39B7FF4D45045AE1F43758992443673E
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   Begin Object Name="MaterialExpressionBumpOffset_3"
+      Coordinate=(Expression=MaterialExpressionTextureCoordinate'"M_Tech_Hex_Tile:MaterialExpressionTextureCoordinate_13"')
+      Height=(Expression=MaterialExpressionTextureSample'"M_Tech_Hex_Tile:MaterialExpressionTextureSample_26"',OutputIndex=3,Mask=1,MaskB=1)
+      MaterialExpressionEditorX=-1640
+      MaterialExpressionEditorY=720
+      MaterialExpressionGuid=EDEEC3BF46749CEFB73154B51B5D09FD
+      Material=Material'"M_Tech_Hex_Tile"'
+   End Object
+   BaseColor=(Expression=MaterialExpressionMultiply'"MaterialExpressionMultiply_26"')
+   Metallic=(Expression=MaterialExpressionLinearInterpolate'"MaterialExpressionLinearInterpolate_5"')
+   Roughness=(Expression=MaterialExpressionConstant'"MaterialExpressionConstant_42"')
+   Normal=(Expression=MaterialExpressionMaterialFunctionCall'"MaterialExpressionMaterialFunctionCall_3"')
+   bUsedWithStaticLighting=True
+   EditorX=736
+   EditorY=208
+   Expressions(0)=MaterialExpressionMultiply'"MaterialExpressionMultiply_26"'
+   Expressions(1)=MaterialExpressionConstant'"MaterialExpressionConstant_42"'
+   Expressions(2)=MaterialExpressionMaterialFunctionCall'"MaterialExpressionMaterialFunctionCall_3"'
+   Expressions(3)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_25"'
+   Expressions(4)=MaterialExpressionTextureCoordinate'"MaterialExpressionTextureCoordinate_13"'
+   Expressions(5)=MaterialExpressionBumpOffset'"MaterialExpressionBumpOffset_3"'
+   Expressions(6)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_26"'
+   Expressions(7)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_27"'
+   Expressions(8)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_28"'
+   Expressions(9)=MaterialExpressionTextureCoordinate'"MaterialExpressionTextureCoordinate_14"'
+   Expressions(10)=MaterialExpressionLinearInterpolate'"MaterialExpressionLinearInterpolate_30"'
+   Expressions(11)=MaterialExpressionConstant3Vector'"MaterialExpressionConstant3Vector_7"'
+   Expressions(12)=MaterialExpressionVectorParameter'"MaterialExpressionVectorParameter_26"'
+   Expressions(13)=MaterialExpressionLinearInterpolate'"MaterialExpressionLinearInterpolate_5"'
+   EditorComments(0)=MaterialExpressionComment'"MaterialExpressionComment_25"'
+   EditorComments(1)=MaterialExpressionComment'"MaterialExpressionComment_26"'
+   EditorComments(2)=MaterialExpressionComment'"MaterialExpressionComment_27"'
+   EditorComments(3)=MaterialExpressionComment'"MaterialExpressionComment_29"'
+   EditorComments(4)=MaterialExpressionComment'"MaterialExpressionComment_0"'
+   EditorComments(5)=MaterialExpressionComment'"MaterialExpressionComment_1"'
+   EditorComments(6)=MaterialExpressionComment'"MaterialExpressionComment_2"'
+   EditorComments(7)=MaterialExpressionComment'"MaterialExpressionComment_3"'
+   MaterialFunctionInfos(0)=(StateId=F5C2D4774BA63455E32B4B960D7674B6,Function=MaterialFunction'"/Engine/Functions/Engine_MaterialFunctions02/Utility/BlendAngleCorrectedNormals.BlendAngleCorrectedNormals"')
+   StateId=54069727456D0C811EAE5787C7C7BCB7
+   ReferencedTextureGuids(0)=0A17556B4A7AD2CEA77696A59AB2DCFE
+   ReferencedTextureGuids(1)=F93262064295CC0E9B3CF9A2DB4CDECF
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=116D3B24490628D5571FBCAD50677137
+End Object
