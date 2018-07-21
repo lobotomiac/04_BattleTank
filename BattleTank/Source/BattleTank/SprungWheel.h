@@ -28,7 +28,7 @@ private:
 	void SetupConstraint();
 	
 	UPROPERTY(VisibleAnywhere, Category = Components)
-	UStaticMeshComponent* Wheel = nullptr;
+	USphereComponent* Wheel = nullptr;
 
 	UPROPERTY(VisibleAnywhere, Category = Components)
 	USphereComponent* Axle = nullptr;
@@ -39,11 +39,8 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = Components)
 	UPhysicsConstraintComponent* AxleWheelConstraint = nullptr;
 
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
-	
 };

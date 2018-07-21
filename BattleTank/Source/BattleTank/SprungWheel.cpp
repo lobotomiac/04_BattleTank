@@ -15,12 +15,13 @@ ASprungWheel::ASprungWheel()
 
 	Axle = CreateDefaultSubobject<USphereComponent>("Axle");
 	Axle->SetupAttachment(TankAxleConstraint);
-
-	Wheel = CreateDefaultSubobject<UStaticMeshComponent>("Wheel");
-	Wheel->SetupAttachment(Axle);
+	
+	Wheel = CreateDefaultSubobject<USphereComponent>("Wheel");
+	Wheel->SetupAttachment(AxleWheelConstraint);
 
 	AxleWheelConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>("AxleWheelConstraint");
 	AxleWheelConstraint->SetupAttachment(Axle);
+	
 }
 
 // Called when the game starts or when spawned
@@ -44,7 +45,6 @@ void ASprungWheel::SetupConstraint()
 		return;
 	}
 	TankAxleConstraint->SetConstrainedComponents(BodyRoot, NAME_None, Axle, NAME_None);
-
 	AxleWheelConstraint->SetConstrainedComponents(Axle, NAME_None, Wheel, NAME_None);
 }
 
