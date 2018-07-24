@@ -17,7 +17,7 @@ ASprungWheel::ASprungWheel()
 	Axle->SetupAttachment(TankAxleConstraint);
 	
 	Wheel = CreateDefaultSubobject<USphereComponent>("Wheel");
-	Wheel->SetupAttachment(AxleWheelConstraint);
+	Wheel->SetupAttachment(Axle);
 
 	AxleWheelConstraint = CreateDefaultSubobject<UPhysicsConstraintComponent>("AxleWheelConstraint");
 	AxleWheelConstraint->SetupAttachment(Axle);
@@ -56,3 +56,7 @@ void ASprungWheel::Tick(float DeltaTime)
 
 }
 
+void ASprungWheel::AddDrivingForce(float ForceMagnitude)
+{
+	Wheel->AddForce(Axle->GetForwardVector() * ForceMagnitude);
+}

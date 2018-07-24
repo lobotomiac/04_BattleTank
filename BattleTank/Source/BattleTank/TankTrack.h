@@ -24,16 +24,11 @@ public:
 	float MaxDrivingForce = 107290;		// TODO fix a realistic value /learn more about acceleration
 
 private:
-	virtual void BeginPlay() override;
-
-	float CurrentThrottle = 0.0f;
-
-	void DriveTrack();
-
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
-
 	UTankTrack();
 
-	void SlipCorrection();
+	virtual void BeginPlay() override;
+
+	void DriveTrack(float CurrentThrottle);
+
+	TArray<class ASprungWheel*> GetWheels() const;
 };
